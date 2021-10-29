@@ -1,0 +1,26 @@
+Write Title Here
+
+# The reason this commit happened. 
+Why: 
+
+# Description about this commit.
+Description: 
+
+# Uncommit for connect a github issue with this commit.
+# gh-
+
+# Tags for searching: 
+Tags: 
+
+# ## List of Tags ##
+# Start: EMPTY COMMIT with description for new feature branch
+# Add: Create new capability
+# Drop: Delete existing capability
+# Optimize: Increasing performance
+# Document: Writing documents
+# Fix: Fix an issue or bug
+# Refactor: Refactoring code
+# Reformat: Reformating code
+
+# To set this template as git commit template, run this commend
+#     git config --global commit.template ./git-commit-template.txt
