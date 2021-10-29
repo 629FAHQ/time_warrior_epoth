@@ -18,6 +18,8 @@ Tags:
 # Drop: Delete existing capability
 # Optimize: Increasing performance
 # Document: Writing documents
+# Make: Changing build process
+# Environment: Changeing envieonment setting e.g.) .gitignore, git-commit-template.txt
 # Fix: Fix an issue or bug
 # Refactor: Refactoring code
 # Reformat: Reformating code
