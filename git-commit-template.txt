@@ -13,7 +13,6 @@ Description:
 Tags: 
 
 # ## List of Tags ##
-# Start: EMPTY COMMIT with description for new feature branch
 # Add: Create new capability
 # Drop: Delete existing capability
 # Optimize: Increasing performance
