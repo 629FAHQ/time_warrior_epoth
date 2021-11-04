@@ -4,7 +4,7 @@ CC = g++
 CXXFLAGS = -Wall -O2
 
 # 링커 옵션
-LDFLAGS =
+LDFLAGS = -lncurses
 
 # 소스 파일 디렉토리
 SRC_DIR = ./src
