@@ -1,7 +1,7 @@
 CC = g++
 
 # C++ 컴파일러 옵션
-CXXFLAGS = -Wall -O2
+CXXFLAGS = -Wall -O2 -g
 
 # 링커 옵션
 LDFLAGS = -lncurses
