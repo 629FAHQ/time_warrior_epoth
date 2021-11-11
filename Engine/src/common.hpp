@@ -8,4 +8,4 @@
 struct INTPOS {
     int x;
     int y;
-}
+};
