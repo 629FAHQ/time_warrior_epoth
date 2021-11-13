@@ -1,11 +1,14 @@
 #include <ctime>
 
+#include "Engine.hpp"
 #include "AGame.hpp"
 #include "AController.hpp"
 
 
 AGame::AGame()
 {
+    Engine::SetCurrentGame(this);
+
 	startClock = (double) clock();
 	previousClock = startClock;
 	currentClock = startClock;
