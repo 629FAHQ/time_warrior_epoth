@@ -5,16 +5,14 @@
 void Controller::InitializeController()
 {
     noecho();
-    nodelay(stdscr, TRUE);
+    // nodelay(stdscr, TRUE); // Get input as negative value...
     keypad(stdscr, TRUE);
 }
 
 bool Controller::IsKeyHit() 
 {
-    int ch = getch();
-    
+    int ch = GetPressedKey();
     if (ch != ERR) {
-        ungetch(ch);
         return TRUE;
     } else {
         return FALSE;

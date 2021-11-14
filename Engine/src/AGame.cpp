@@ -3,6 +3,7 @@
 #include "Engine.hpp"
 #include "AGame.hpp"
 #include "AController.hpp"
+#include "AScreen.hpp"
 
 
 AGame::AGame()
@@ -44,6 +45,7 @@ void AGame::EndGame()
 void AGame::Tick()
 {
     UpdateDeltaTime();
+    screen->Tick();
 };
 
 void AGame::UpdateDeltaTime()

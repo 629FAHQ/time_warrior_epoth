@@ -1,9 +1,11 @@
 #include <ctime>
 #include <ncurses.h>
 
+#include "Engine.hpp"
 #include "common.hpp"
 #include "Game.hpp"
 #include "Controller.hpp"
+#include "Screen.hpp"
 
 
 Game::Game()
@@ -19,6 +21,7 @@ Game::~Game()
 void Game::StartGame() 
 {
     controller = new Controller;
+    screen = new Screen;
  
     InitializeNcurses();
     
@@ -29,6 +32,7 @@ void Game::StartGame()
 void Game::EndGame()
 {
     SAFE_DELETE(controller)
+    SAFE_DELETE(screen)
 
     endwin();
     
@@ -50,21 +54,12 @@ void Game::Tick()
 {
     // ** AGame::EndGame() have to be called at the head of this method. **
     AGame::Tick();
-
-    Controller *castedController = dynamic_cast<Controller*>(controller);
     
     int key = controller->GetPressedKey();
     if(key == ctrl('q'))
     {
         isGameHaveToBeEnded = true;
     }
-    if(key != castedController->EKey::NO_INPUT)
-    {
-        move(0, 0);
-        printw("pressed key: %2c", key);
-    }
-
-    refresh();
 }
 
 
