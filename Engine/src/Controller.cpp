@@ -5,7 +5,7 @@
 void Controller::InitializeController()
 {
     noecho();
-    nodelay(stdscr, TRUE); // Get input as negative value...
+    nodelay(stdscr, TRUE);
     keypad(stdscr, TRUE);
 }
 
