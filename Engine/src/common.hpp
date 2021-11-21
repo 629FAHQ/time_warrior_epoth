@@ -7,6 +7,8 @@
 #define MAX_HEIGHT 20
 #define MAX_WIDTH 80
 
+#define MAX_FPS 20
+
 
 class INTPOS {
 public:

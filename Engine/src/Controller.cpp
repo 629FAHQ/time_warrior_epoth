@@ -17,4 +17,5 @@ bool Controller::IsKeyHit()
 void Controller::UpdateController()
 {
     currentKey = getch();
+    flushinp();
 }

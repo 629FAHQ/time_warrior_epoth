@@ -1,6 +1,7 @@
 #include <ctime>
 
 #include "Engine.hpp"
+#include "common.hpp"
 #include "AGame.hpp"
 #include "AController.hpp"
 #include "AScreen.hpp"
@@ -17,6 +18,7 @@ AGame::AGame()
 	gameTimeWeight = 1.f;
 	
 	isGameHaveToBeEnded = false;
+	isNewFrameHaveToBeDrawn = false;
 }
 
 AGame::~AGame()
@@ -30,7 +32,6 @@ void AGame::StartGame()
 
     while(!isGameHaveToBeEnded)
 	{
-        controller->UpdateController();
 		Tick();
 	}
 
@@ -44,13 +45,25 @@ void AGame::EndGame()
 
 void AGame::Tick()
 {
-    UpdateDeltaTime();
-    screen->Tick();
+	UpdateDeltaTime();
+	if(isNewFrameHaveToBeDrawn)
+	{
+		controller->UpdateController();
+		screen->Tick();
+		isNewFrameHaveToBeDrawn = false;
+	}
 };
 
 void AGame::UpdateDeltaTime()
 {
 	currentClock = clock();
-	deltaTime = (double) (currentClock - previousClock) / CLOCKS_PER_SEC;
-	previousClock = currentClock;
+	double newDeltaTime = (double) (currentClock - previousClock) / CLOCKS_PER_SEC;
+
+	if (newDeltaTime >= 1.f / MAX_FPS)
+	{
+		deltaTime = newDeltaTime;
+		previousClock = currentClock;
+
+		isNewFrameHaveToBeDrawn = true;
+	}
 }

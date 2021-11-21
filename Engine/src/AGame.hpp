@@ -15,6 +15,7 @@ public:
 	clock_t currentClock;
 
 	bool isGameHaveToBeEnded;
+	bool isNewFrameHaveToBeDrawn;
 
     AController *controller;
     AStage *stage;
