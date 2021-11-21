@@ -1,3 +1,4 @@
+#include <ctime>
 #include <ncurses.h>
 
 #include "Screen.hpp"
@@ -74,10 +75,19 @@ void Screen::Tick()
 void Screen::Draw()
 {
     box(window, 0, 0);
-    AController* controller = Engine::GetCurrentGame()->controller;
+    Game* game = (Game *) Engine::GetCurrentGame();
+    AController* controller = game->controller;
+
+    time_t playedClock = game->GetPlayedClock();
+    double playedTime = game->GetPlayedTime();
+    double deltaTime = game->GetDeltaTime();
+    mvwprintw(window, 3, 0, "playedClock: %d", playedClock);
+    mvwprintw(window, 4, 0, "playedTime: %f", playedTime);
+    mvwprintw(window, 5, 0, "deltaTime: %f", deltaTime);
 
     int key = controller->GetPressedKey();
     mvwprintw(window, 1, 0, "pressed key: %3d", key);
+
      
     if(controller->IsKeyHit())
     {

@@ -50,7 +50,7 @@ void AGame::Tick()
 
 void AGame::UpdateDeltaTime()
 {
-	currentClock = (double) clock();
-	deltaTime = (currentClock - previousClock) / CLOCKS_PER_SEC;
+	currentClock = clock();
+	deltaTime = (double) (currentClock - previousClock) / CLOCKS_PER_SEC;
 	previousClock = currentClock;
 }
