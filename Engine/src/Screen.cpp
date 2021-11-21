@@ -57,8 +57,10 @@ Screen::~Screen()
         subScreens.pop_back();
     }
 
-    DestroyWindow(window);
-
+    if(window)
+    {
+        DestroyWindow(window);
+    }
 }
 
 
@@ -73,20 +75,16 @@ void Screen::Draw()
 {
     box(window, 0, 0);
     AController* controller = Engine::GetCurrentGame()->controller;
-    Controller *castedController = dynamic_cast<Controller*>(controller);
-    mvprintw(0, 0, "%d", window);
 
     int key = controller->GetPressedKey();
-    mvwprintw(window, 0, 0, "pressed key: %3d", key);
-    
+    mvwprintw(window, 1, 0, "pressed key: %3d", key);
+     
     if(controller->IsKeyHit())
     {
-        mvwprintw(window, 1, 0, "pressed!");
+        mvwprintw(window, 2, 0, "pressed!");
     }else{
-        mvwprintw(window, 1, 0, "pressed!");
+        mvwprintw(window, 2, 0, "not pressed!");
     }
-
-    UpdateAllScreen();
 }
 
 void Screen::UpdateScreen()

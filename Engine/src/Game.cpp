@@ -20,10 +20,10 @@ Game::~Game()
 
 void Game::StartGame() 
 {
+    InitializeNcurses();
+
     controller = new Controller;
     screen = new Screen;
- 
-    InitializeNcurses();
     
     // ** AGame::StartGame() have to be called at the end of this method. **
     AGame::StartGame();

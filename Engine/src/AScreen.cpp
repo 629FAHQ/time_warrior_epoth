@@ -20,6 +20,8 @@ void AScreen::Tick()
     {
         subScreen->Tick();
     }
+
+    UpdateScreen();
 }
 
 void AScreen::PushSubScreen(AScreen *subScreen)
