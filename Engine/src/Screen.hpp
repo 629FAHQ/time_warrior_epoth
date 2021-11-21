@@ -20,10 +20,10 @@ public:
     virtual void Tick() override;
     virtual void Draw() override;
     virtual void UpdateScreen() override;
-    virtual void ClearScreen() override;
+    virtual void EraseScreen() override;
 
     static void UpdateAllScreen();
-    static void ClearAllScreen();
+    static void EraseAllScreen();
     static WINDOW *CreateNewWindow(INTSIZE &size, INTPOS &startPoint);
     static void DestroyWindow(WINDOW *local_win);
 };

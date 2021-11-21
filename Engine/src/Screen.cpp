@@ -122,12 +122,12 @@ void Screen::DestroyWindow(WINDOW *window)
     delwin(window);
 }
 
-void Screen::ClearScreen()
+void Screen::EraseScreen()
 {
-    wclear(window);
+    werase(window);
 }
 
-void Screen::ClearAllScreen()
+void Screen::EraseAllScreen()
 {
-    clear();
+    erase();
 }

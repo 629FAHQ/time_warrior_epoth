@@ -14,7 +14,7 @@ public:
     virtual void Tick();
     virtual void Draw() = 0;
     virtual void UpdateScreen() = 0;
-    virtual void ClearScreen() = 0;
+    virtual void EraseScreen() = 0;
 
     void PushSubScreen(AScreen * subScreen);
 };

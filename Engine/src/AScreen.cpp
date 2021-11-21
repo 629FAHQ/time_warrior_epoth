@@ -13,7 +13,7 @@ AScreen::~AScreen()
 
 void AScreen::Tick()
 {
-    ClearScreen();
+    EraseScreen();
     Draw();
     
     for(AScreen *subScreen: subScreens)
