@@ -6,7 +6,8 @@ class AController;
 class AStage;
 class AScreen;
 
-class AGame {
+class AGame
+{
 public:
 	double gameTimeWeight;
 	double deltaTime;
@@ -17,12 +18,12 @@ public:
 	bool isGameHaveToBeEnded;
 	bool isNewFrameHaveToBeDrawn;
 
-    AController *controller;
-    AStage *stage;
-    AScreen *screen;
+	AController *controller;
+	AStage *stage;
+	AScreen *screen;
 
 public:
-    AGame();
+	AGame();
 	virtual ~AGame();
 	virtual void StartGame();
 	virtual void EndGame();
@@ -31,7 +32,7 @@ public:
 	virtual void Tick();
 
 	inline clock_t GetPlayedClock() { return currentClock - startClock; };
-	inline double GetPlayedTime() { return (double) GetPlayedClock() / CLOCKS_PER_SEC; };
+	inline double GetPlayedTime() { return (double)GetPlayedClock() / CLOCKS_PER_SEC; };
 	inline double GetDeltaTime() { return deltaTime; };
 
 private:

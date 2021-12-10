@@ -9,7 +9,7 @@ void Controller::InitializeController()
     keypad(stdscr, TRUE);
 }
 
-bool Controller::IsKeyHit() 
+bool Controller::IsKeyHit()
 {
     return GetPressedKey() != ERR;
 }

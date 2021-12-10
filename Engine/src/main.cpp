@@ -5,10 +5,10 @@
 
 int main()
 {
-	AGame* NewGame = new class Game;
+	AGame *NewGame = new class Game;
 	NewGame->StartGame();
-    
-    SAFE_DELETE(NewGame)
+
+	SAFE_DELETE(NewGame)
 
 	return 0;
 }

@@ -2,11 +2,12 @@ class AGame;
 class AController;
 class AScreen;
 
-class Engine 
+class Engine
 {
     friend class AGame;
     friend class AController;
     friend class AScreen;
+
 public:
     static AGame *currentGame;
 

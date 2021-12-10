@@ -4,7 +4,8 @@
 #include "common.hpp"
 #include "AScreen.hpp"
 
-class Screen : public AScreen {
+class Screen : public AScreen
+{
 public:
     WINDOW *window;
     INTSIZE size;
@@ -16,7 +17,7 @@ public:
     Screen(AScreen *parentScreen, INTSIZE &size);
     Screen(AScreen *parentScreen, INTSIZE &size, INTPOS &relativeStartPoint);
     virtual ~Screen();
-    
+
     virtual void Tick() override;
     virtual void Draw() override;
     virtual void UpdateScreen() override;

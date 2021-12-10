@@ -1,9 +1,8 @@
 #include "common.hpp"
 
 INTPOS::INTPOS(int y, int x)
-:y(y), x(x) 
+    : y(y), x(x)
 {
-    
 }
 
 INTPOS INTPOS::operator+=(const INTPOS &right)
@@ -25,21 +24,20 @@ INTPOS INTPOS::operator-=(const INTPOS &right)
 const INTPOS INTPOS::operator+(const INTPOS &right) const
 {
     INTPOS result = *this;
-    result += right; 
-    return result; 
+    result += right;
+    return result;
 }
 
 const INTPOS INTPOS::operator-(const INTPOS &right) const
 {
     INTPOS result = *this;
-    result -= right; 
-    return result; 
+    result -= right;
+    return result;
 }
 
 INTSIZE::INTSIZE(int height, int width)
-:height(height), width(width)
+    : height(height), width(width)
 {
-    
 }
 
 INTSIZE INTSIZE::operator+=(const INTSIZE &right)

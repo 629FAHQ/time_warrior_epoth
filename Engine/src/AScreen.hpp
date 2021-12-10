@@ -3,11 +3,11 @@
 #include <vector>
 #include <ncurses.h>
 
-
-class AScreen {
+class AScreen
+{
 public:
     std::vector<AScreen *> subScreens;
-    
+
 public:
     AScreen();
     virtual ~AScreen();
@@ -16,5 +16,5 @@ public:
     virtual void UpdateScreen() = 0;
     virtual void EraseScreen() = 0;
 
-    void PushSubScreen(AScreen * subScreen);
+    void PushSubScreen(AScreen *subScreen);
 };

@@ -4,12 +4,14 @@
 
 #include "AController.hpp"
 
-
-class Controller : public AController {
+class Controller : public AController
+{
 public:
-    enum EKey {
-        NO_INPUT=ERR,
+    enum EKey
+    {
+        NO_INPUT = ERR,
     };
+
 public:
     void InitializeController() override;
     bool IsKeyHit() override;

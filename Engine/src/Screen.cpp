@@ -8,7 +8,6 @@
 #include "Game.hpp"
 #include "Controller.hpp"
 
-
 Screen::Screen()
 {
     size = INTSIZE(MAX_HEIGHT, MAX_WIDTH);
@@ -20,7 +19,7 @@ Screen::Screen()
 Screen::Screen(AScreen *parentScreen)
 {
     parentScreen->PushSubScreen(parentScreen);
-    
+
     const Screen *castedParentScreen = dynamic_cast<Screen *>(parentScreen);
 
     size = castedParentScreen->size;
@@ -28,42 +27,41 @@ Screen::Screen(AScreen *parentScreen)
     window = CreateNewWindow(size, startPoint);
 }
 
-Screen::Screen(AScreen *parentScreen, INTSIZE& size)
-:size(size)
+Screen::Screen(AScreen *parentScreen, INTSIZE &size)
+    : size(size)
 {
     parentScreen->PushSubScreen(parentScreen);
- 
+
     const Screen *castedParentScreen = dynamic_cast<Screen *>(parentScreen);
-    
+
     startPoint = castedParentScreen->startPoint;
     window = CreateNewWindow(size, startPoint);
 }
 
 Screen::Screen(AScreen *parentScreen, INTSIZE &size, INTPOS &relativeStartPoint)
-:size(size)
+    : size(size)
 {
     parentScreen->PushSubScreen(parentScreen);
 
     const Screen *castedParentScreen = dynamic_cast<Screen *>(parentScreen);
-    
+
     startPoint = castedParentScreen->startPoint + relativeStartPoint;
 }
 
 Screen::~Screen()
 {
-    while(!subScreens.empty())
+    while (!subScreens.empty())
     {
         AScreen *subScreen = subScreens.back();
         SAFE_DELETE(subScreen);
         subScreens.pop_back();
     }
 
-    if(window)
+    if (window)
     {
         DestroyWindow(window);
     }
 }
-
 
 void Screen::Tick()
 {
@@ -75,8 +73,8 @@ void Screen::Tick()
 void Screen::Draw()
 {
     box(window, 0, 0);
-    Game* game = (Game *) Engine::GetCurrentGame();
-    AController* controller = game->controller;
+    Game *game = (Game *)Engine::GetCurrentGame();
+    AController *controller = game->controller;
 
     time_t playedClock = game->GetPlayedClock();
     double playedTime = game->GetPlayedTime();
@@ -88,11 +86,12 @@ void Screen::Draw()
     int key = controller->GetPressedKey();
     mvwprintw(window, 1, 0, "pressed key: %3d", key);
 
-     
-    if(controller->IsKeyHit())
+    if (controller->IsKeyHit())
     {
         mvwprintw(window, 2, 0, "pressed!");
-    }else{
+    }
+    else
+    {
         mvwprintw(window, 2, 0, "not pressed!");
     }
 }
@@ -109,16 +108,16 @@ void Screen::UpdateAllScreen()
 
 WINDOW *Screen::CreateNewWindow(INTSIZE &size, INTPOS &startPoint)
 {
-        WINDOW *_window;
+    WINDOW *_window;
 
-        _window = newwin(size.height, size.width, startPoint.y, startPoint.x);
+    _window = newwin(size.height, size.width, startPoint.y, startPoint.x);
 
-        return _window;
+    return _window;
 }
 
 void Screen::DestroyWindow(WINDOW *window)
 {
-	wborder(window, ' ', ' ', ' ',' ',' ',' ',' ',' ');
+    wborder(window, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
     delwin(window);
 }
 

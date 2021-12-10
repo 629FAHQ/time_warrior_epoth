@@ -6,47 +6,44 @@
 #include "AController.hpp"
 #include "AScreen.hpp"
 
-
 AGame::AGame()
 {
-    Engine::SetCurrentGame(this);
+	Engine::SetCurrentGame(this);
 
-	startClock = (double) clock();
+	startClock = (double)clock();
 	previousClock = startClock;
 	currentClock = startClock;
 	deltaTime = 0.f;
 	gameTimeWeight = 1.f;
-	
+
 	isGameHaveToBeEnded = false;
 	isNewFrameHaveToBeDrawn = false;
 }
 
 AGame::~AGame()
 {
-    
 }
 
 void AGame::StartGame()
 {
-    controller->InitializeController();
+	controller->InitializeController();
 
-    while(!isGameHaveToBeEnded)
+	while (!isGameHaveToBeEnded)
 	{
 		Tick();
 	}
 
-    EndGame();
+	EndGame();
 };
 
-void AGame::EndGame()
-{
+void AGame::EndGame(){
 
 };
 
 void AGame::Tick()
 {
 	UpdateDeltaTime();
-	if(isNewFrameHaveToBeDrawn)
+	if (isNewFrameHaveToBeDrawn)
 	{
 		controller->UpdateController();
 		screen->Tick();
@@ -57,7 +54,7 @@ void AGame::Tick()
 void AGame::UpdateDeltaTime()
 {
 	currentClock = clock();
-	double newDeltaTime = (double) (currentClock - previousClock) / CLOCKS_PER_SEC;
+	double newDeltaTime = (double)(currentClock - previousClock) / CLOCKS_PER_SEC;
 
 	if (newDeltaTime >= 1.f / MAX_FPS)
 	{

@@ -2,10 +2,10 @@
 
 #include "AGame.hpp"
 
-
-class Game : public AGame {
+class Game : public AGame
+{
 public:
-    Game();
+	Game();
 	virtual ~Game();
 	virtual void StartGame() override;
 	virtual void EndGame() override;
@@ -14,5 +14,5 @@ public:
 	virtual void Tick() override;
 
 private:
-    void InitializeNcurses();
+	void InitializeNcurses();
 };

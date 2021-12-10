@@ -2,9 +2,11 @@
 
 #include <ncurses.h>
 
-class AController {
+class AController
+{
 public:
     int currentKey;
+
 public:
     AController();
     virtual ~AController();

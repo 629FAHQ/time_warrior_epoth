@@ -1,22 +1,19 @@
 #include "AScreen.hpp"
 
-
 AScreen::AScreen()
 {
-
 }
 
 AScreen::~AScreen()
 {
-
 }
 
 void AScreen::Tick()
 {
     EraseScreen();
     Draw();
-    
-    for(AScreen *subScreen: subScreens)
+
+    for (AScreen *subScreen : subScreens)
     {
         subScreen->Tick();
     }
