@@ -1,6 +1,6 @@
 #include <ctime>
 
-#include "Engine.hpp"
+#include "AEngine.hpp"
 #include "common.hpp"
 #include "AGame.hpp"
 #include "AController.hpp"
@@ -8,7 +8,7 @@
 
 AGame::AGame()
 {
-	Engine::SetCurrentGame(this);
+	AEngine::SetCurrentGame(this);
 
 	startClock = (double)clock();
 	previousClock = startClock;

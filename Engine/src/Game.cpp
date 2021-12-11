@@ -1,7 +1,6 @@
 #include <ctime>
 #include <ncurses.h>
 
-#include "Engine.hpp"
 #include "common.hpp"
 #include "Game.hpp"
 #include "Controller.hpp"

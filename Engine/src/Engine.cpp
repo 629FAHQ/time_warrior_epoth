@@ -1,3 +1,5 @@
 #include "Engine.hpp"
 
-AGame *Engine::currentGame;
+Engine::Engine() {}
+
+Engine::~Engine() {}
